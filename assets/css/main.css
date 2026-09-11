@@ -4140,6 +4140,7 @@ ul.contact li:before,
 /* The navigation is intentionally left-aligned for the Aruges Works system look. */
 #sidebar nav a {
 	text-align: left;
+	padding-left: 1em;
 }
 
 /* Replace the stock active horizontal bar with a restrained vertical indicator. */
