@@ -3748,7 +3748,6 @@ input, select, textarea {
 			position: relative;
 			text-decoration: none;
 			text-transform: uppercase;
-			text-align: left;
 		}
 
 			#sidebar nav a:before, #sidebar nav a:after {
@@ -3877,7 +3876,7 @@ input, select, textarea {
 		background-attachment: fixed;
 		background-color: #0D1014;
 		background-image:
-			linear-gradient(90deg, rgba(13, 16, 20, 0.62) 0%, rgba(13, 16, 20, 0.30) 42%, rgba(13, 16, 20, 0.10) 100%),
+			linear-gradient(90deg, rgba(13, 16, 20, 0.82) 0%, rgba(13, 16, 20, 0.42) 42%, rgba(13, 16, 20, 0.16) 100%),
 			url("images/intro.png");
 		background-position: top right;
 		background-repeat: no-repeat;
@@ -4117,4 +4116,118 @@ ul.contact li:before,
 
 #intro {
 	box-shadow: inset 0 -80px 100px -100px rgba(111, 137, 166, 0.15);
+}
+
+
+/* ==========================================================================
+   Aruges Works — V6 composition pass
+   Twilight infrastructure hero / integrated navigation / no layout changes
+   ========================================================================== */
+
+/* Let the hero atmosphere visually continue behind the fixed sidebar. */
+#sidebar {
+	background:
+		linear-gradient(90deg,
+			rgba(13, 16, 20, 0.96) 0%,
+			rgba(13, 16, 20, 0.86) 62%,
+			rgba(13, 16, 20, 0.58) 100%),
+		url("images/intro.png");
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: auto 100vh;
+}
+
+/* The navigation is intentionally left-aligned for the Aruges Works system look. */
+#sidebar nav a {
+	text-align: left;
+}
+
+/* Replace the stock active horizontal bar with a restrained vertical indicator. */
+#sidebar nav a.active {
+	background-image: linear-gradient(#93A7BE, #93A7BE);
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-size: 2px 2em;
+}
+
+#sidebar nav a.active:after {
+	max-width: 0;
+}
+
+/* Keep inactive separators subtle rather than visually dominant. */
+#sidebar nav a:before {
+	right: 0;
+	width: 100%;
+	background: rgba(111, 137, 166, 0.09);
+}
+
+/* Give the hero more breathing room and pull the content toward the visual center. */
+#intro > .inner {
+	padding-left: 3em;
+	padding-right: 3em;
+	max-width: 62em;
+}
+
+#intro {
+	background-image:
+		linear-gradient(90deg,
+			rgba(13, 16, 20, 0.45) 0%,
+			rgba(13, 16, 20, 0.20) 45%,
+			rgba(13, 16, 20, 0.05) 100%),
+		url("images/intro.png");
+	background-position: center center;
+	background-size: cover;
+}
+
+/* Slightly more contemporary button treatment, without changing its dimensions. */
+#intro .button {
+	border-color: rgba(111, 137, 166, 0.72) !important;
+}
+
+#intro .button:hover {
+	border-color: #93A7BE !important;
+}
+
+/* Add the arrow through CSS so no HTML changes are required. */
+#intro .button:not(.icon)::after {
+	content: '→';
+	background: none;
+	border-radius: 0;
+	height: auto;
+	left: auto;
+	opacity: 1;
+	position: static;
+	transform: none;
+	width: auto;
+	margin-left: 0.9em;
+	vertical-align: 0;
+	font-size: 1.15em;
+	line-height: 1;
+	color: #93A7BE;
+}
+
+/* Keep the arrow stable on hover; the stock button wash is disabled for this hero button. */
+#intro .button:hover:after {
+	opacity: 1;
+	transform: none;
+}
+
+/* On smaller desktop widths, restore the stock Hyperspace geometry. */
+@media screen and (max-width: 1280px) {
+	#sidebar {
+		background: #0D1014;
+	}
+
+	#intro > .inner {
+		padding-left: 4em;
+		padding-right: 4em;
+		max-width: 100%;
+	}
+}
+
+@media screen and (max-width: 736px) {
+	#intro > .inner {
+		padding-left: 2em;
+		padding-right: 2em;
+	}
 }
